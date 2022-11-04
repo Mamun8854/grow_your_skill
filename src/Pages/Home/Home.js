@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <div>
-      <section className="dark:bg-gray-100 dark:text-gray-100">
+      <section className="bg-gray-100 text-gray-100">
         <div className="container flex flex-col justify-center lg:px-28 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
           <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
             <h1 className="text-5xl text-teal-600 font-bold leading-none ">
@@ -20,7 +20,7 @@ const Home = () => {
               <Link
                 rel="noopener noreferrer"
                 to="/courses"
-                className="px-8 py-3 text-lg text-white font-semibold rounded dark:bg-teal-600 "
+                className="px-8 py-3 text-lg text-white font-semibold rounded bg-teal-600 "
               >
                 Continue Courses
               </Link>

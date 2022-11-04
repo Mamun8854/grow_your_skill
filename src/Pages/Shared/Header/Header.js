@@ -6,6 +6,7 @@ import Image from "./icon.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, signOutUser } = useContext(AuthContext);
+
   return (
     <div className="bg-gray-900">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -57,13 +58,13 @@ const Header = () => {
             <li>
               <label
                 htmlFor="Toggle2"
-                className="inline-flex items-center space-x-4 cursor-pointer dark:text-gray-100"
+                className="inline-flex items-center space-x-4 cursor-pointer text-gray-100"
               >
                 <span>Dark</span>
                 <span className="relative">
                   <input id="Toggle2" type="checkbox" className="hidden peer" />
-                  <div className="w-10 h-4 rounded-full shadow dark:bg-gray-600 peer-checked:dark:bg-violet-400"></div>
-                  <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto dark:bg-violet-400"></div>
+                  <div className="w-10 h-4 rounded-full shadow bg-gray-600 peer-checked:bg-violet-400"></div>
+                  <div className="absolute left-0 w-6 h-6 rounded-full shadow -inset-y-1 peer-checked:right-0 peer-checked:left-auto bg-violet-400"></div>
                 </span>
                 <span>Light</span>
               </label>
@@ -75,8 +76,8 @@ const Header = () => {
                     aria-label="Sign Out"
                     title="Sign Out"
                     alt=""
-                    className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
-                    src="https://source.unsplash.com/40x40/?portrait?1"
+                    className="w-12 h-12 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800"
+                    src={user?.photoURL}
                   />
                 </li>
                 <li>

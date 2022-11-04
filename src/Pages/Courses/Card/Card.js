@@ -5,11 +5,11 @@ const Card = ({ data }) => {
   const { picture, name, id } = data;
   return (
     <div>
-      <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
+      <div className="max-w-xs rounded-md shadow-md bg-gray-900 text-gray-100">
         <img
           src={picture}
           alt=""
-          className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
+          className="object-cover object-center w-full rounded-t-md h-72 bg-gray-500"
         />
         <div className="flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">
@@ -18,7 +18,7 @@ const Card = ({ data }) => {
           <Link to={`/courses/${id}`}>
             <button
               type="button"
-              className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900"
+              className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900"
             >
               Read more
             </button>
