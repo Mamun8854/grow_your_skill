@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Image from "./icon.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const { user } = useContext(AuthContext);
   return (
     <div className="bg-gray-900">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -66,15 +68,49 @@ const Header = () => {
                 <span>Light</span>
               </label>
             </li>
-            <li>
-              <button
-                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
-                aria-label="Sign up"
-                title="Sign up"
-              >
-                Sign Out
-              </button>
-            </li>
+            {user ? (
+              <>
+                <li>
+                  <img
+                    aria-label="Sign Out"
+                    title="Sign Out"
+                    alt=""
+                    className="w-12 h-12 rounded-full ring-2 ring-offset-4 dark:bg-gray-500 ring-violet-400 ring-offset-gray-800"
+                    src="https://source.unsplash.com/40x40/?portrait?1"
+                  />
+                </li>
+                <li>
+                  <button
+                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
+                    aria-label="Sign Out"
+                    title="Sign Out"
+                  >
+                    Sign Out
+                  </button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <button
+                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
+                    aria-label="Sign Out"
+                    title="Sign Out"
+                  >
+                    Sign In
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
+                    aria-label="Sign Out"
+                    title="Sign Out"
+                  >
+                    Register
+                  </button>
+                </li>
+              </>
+            )}
           </ul>
           <div className="lg:hidden">
             <button
