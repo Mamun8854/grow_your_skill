@@ -3,7 +3,7 @@ import { useLoaderData, Link } from "react-router-dom";
 import Pdf from "react-to-pdf";
 const CourseDetails = () => {
   const data = useLoaderData();
-  const { picture, name, details, price } = data;
+  const { picture, name, details, price, id } = data;
 
   const ref = React.createRef();
   const options = {
@@ -46,7 +46,7 @@ const CourseDetails = () => {
                   )}
                 </Pdf>
                 <Link
-                  to="/"
+                  to={`/premium/${id}`}
                   className="px-8 py-3 text-lg font-semibold rounded bg-violet-400 text-gray-900"
                 >
                   Premium
