@@ -26,8 +26,6 @@ const Header = () => {
             <li>
               <Link
                 to="/courses"
-                aria-label="Our product"
-                title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
               >
                 Courses
@@ -36,8 +34,6 @@ const Header = () => {
             <li>
               <Link
                 to="/blog"
-                aria-label="Our product"
-                title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
               >
                 Blog
@@ -46,8 +42,6 @@ const Header = () => {
             <li>
               <Link
                 to="/faq"
-                aria-label="Our product"
-                title="Our product"
                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-400"
               >
                 FAQ
@@ -74,7 +68,7 @@ const Header = () => {
                 <li>
                   <img
                     aria-label="Sign Out"
-                    title="Sign Out"
+                    title={user?.displayName}
                     alt=""
                     className="w-12 h-12 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800"
                     src={user?.photoURL}

@@ -6,12 +6,12 @@ const Courses = () => {
   const datas = useLoaderData();
 
   return (
-    <div className="flex bg-slate-400">
+    <div className="flex bg-gray-100">
       <div className="flex-col gap-5 w-96 hidden md:flex items-center pt-20 ">
         {datas.map((data) => (
           <Link
             key={data.id}
-            className="bg-slate-900 w-56  text-white px-4 py-2"
+            className="bg-slate-900 w-56 rounded font-medium  text-white px-4 py-2"
           >
             {data.name}
           </Link>
