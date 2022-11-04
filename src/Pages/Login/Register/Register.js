@@ -1,16 +1,39 @@
 import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../AuthProvider/AuthProvider";
 const Register = () => {
+  const { registerUserWithEmailPassword } = useContext(AuthContext);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name, photoURL, email, password);
+
+    registerUserWithEmailPassword(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="flex justify-center bg-gray-100 py-20">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-white dark:text-gray-100 stroke-gray-300">
         <h1 className="text-2xl font-bold text-center text-black">
           Registration
         </h1>
-        <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+        <form
+          onSubmit={handleSubmit}
+          className="space-y-6 ng-untouched ng-pristine ng-valid"
+        >
           <div className="space-y-1 text-sm">
             <label
-              for="name"
+              htmlFor="name"
               className="block dark:text-black font-semibold text-left pb-2"
             >
               Your Name
@@ -26,7 +49,7 @@ const Register = () => {
           </div>
           <div className="space-y-1 text-sm">
             <label
-              for="photoURL"
+              htmlFor="photoURL"
               className="block dark:text-black font-semibold text-left pb-2"
             >
               Photo URL
@@ -42,7 +65,7 @@ const Register = () => {
           </div>
           <div className="space-y-1 text-sm">
             <label
-              for="email"
+              htmlFor="email"
               className="block dark:text-black font-semibold text-left pb-2"
             >
               E-mail
@@ -58,7 +81,7 @@ const Register = () => {
           </div>
           <div className="space-y-1 text-sm">
             <label
-              for="password"
+              htmlFor="password"
               className="block dark:text-black font-semibold text-left pb-2"
             >
               Password
@@ -69,7 +92,7 @@ const Register = () => {
               id="password"
               placeholder="Enter your password"
               required
-              className="w-full px-4 py-3 rounded-md border border-gray-700 stroke-cyan-500 dark:text-gray-100 focus:dark:border-violet-400"
+              className="w-full px-4 py-3 rounded-md border border-gray-700 stroke-cyan-500 text-gray-900 focus:dark:border-violet-400"
             />
           </div>
           <button className="block w-full p-3 text-center rounded-sm dark:text-gray-900 dark:bg-violet-400">

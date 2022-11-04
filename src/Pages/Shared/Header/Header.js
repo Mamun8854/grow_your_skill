@@ -5,7 +5,7 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import Image from "./icon.png";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useContext(AuthContext);
+  const { user, signOutUser } = useContext(AuthContext);
   return (
     <div className="bg-gray-900">
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -81,6 +81,7 @@ const Header = () => {
                 </li>
                 <li>
                   <button
+                    onClick={() => signOutUser()}
                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
                     aria-label="Sign Out"
                     title="Sign Out"
@@ -92,22 +93,24 @@ const Header = () => {
             ) : (
               <>
                 <li>
-                  <button
+                  <Link
+                    to="/login"
                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
                     aria-label="Sign Out"
                     title="Sign Out"
                   >
                     Sign In
-                  </button>
+                  </Link>
                 </li>
                 <li>
-                  <button
+                  <Link
+                    to="/register"
                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
                     aria-label="Sign Out"
                     title="Sign Out"
                   >
                     Register
-                  </button>
+                  </Link>
                 </li>
               </>
             )}
