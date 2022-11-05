@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const { signInWithEmailPassword } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -21,12 +22,22 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-        toast.success("Sign In Successful");
         form.reset();
-        navigate(from, { replace: true });
+        setError("");
+        if (user.emailVerified) {
+          navigate(from, { replace: true });
+          toast.success("Successfully login");
+        } else {
+          toast.error("Please verify your mail");
+        }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setError(error.message);
+      });
   };
+
+  const handleSignInWithGoogle = () => {};
   return (
     <div className="flex justify-center py-20 bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-white text-gray-900">
@@ -73,6 +84,7 @@ const Login = () => {
           <button className="block w-full p-3 text-center font-semibold rounded-sm text-gray-900 bg-violet-400">
             Sign in
           </button>
+          <p className="text-red-600">{error}</p>
         </form>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
@@ -104,11 +116,7 @@ const Login = () => {
         </div>
         <p className="text-xs text-center sm:px-6 text-gray-400">
           Don't have an account?
-          <Link
-            rel="noopener noreferrer"
-            to="/register"
-            className="pl-2 font-semibold  text-violet-600"
-          >
+          <Link to="/register" className="pl-2 font-semibold  text-violet-600">
             Sign up
           </Link>
         </p>

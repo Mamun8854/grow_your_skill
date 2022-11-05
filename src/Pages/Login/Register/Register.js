@@ -4,7 +4,8 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
 const Register = () => {
-  const { registerUserWithEmailPassword } = useContext(AuthContext);
+  const { registerUserWithEmailPassword, updateUserProfile, verifyEmail } =
+    useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -29,7 +30,24 @@ const Register = () => {
             console.error(error.message);
           });
         form.reset();
+        handleEmailVerification();
       })
+      .catch((error) => console.error(error));
+  };
+
+  const handleEmailVerification = () => {
+    verifyEmail()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then(() => {})
       .catch((error) => console.error(error));
   };
   return (

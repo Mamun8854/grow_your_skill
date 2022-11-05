@@ -66,13 +66,15 @@ const Header = () => {
             {user ? (
               <>
                 <li>
-                  <img
-                    aria-label="Sign Out"
-                    title={user?.displayName}
-                    alt=""
-                    className="w-12 h-12 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800"
-                    src={user?.photoURL}
-                  />
+                  <Link to="/profile">
+                    <img
+                      aria-label="Sign Out"
+                      title={user?.displayName}
+                      alt=""
+                      className="w-12 h-12 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800"
+                      src={user?.photoURL}
+                    />
+                  </Link>
                 </li>
                 <li>
                   <button
