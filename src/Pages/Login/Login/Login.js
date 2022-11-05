@@ -57,8 +57,8 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center py-20 bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-white text-gray-900">
+    <div className="flex justify-center py-20 bg-gray-100 ">
+      <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-white text-gray-900 shadow-xl shadow-slate-400 hover:shadow-slate-900">
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form
           onSubmit={handleSignInSubmit}

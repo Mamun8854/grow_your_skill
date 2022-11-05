@@ -21,13 +21,16 @@ export const routes = createBrowserRouter([
       {
         path: "/courses",
         element: <Courses></Courses>,
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () =>
+          fetch("https://grow-your-skill-server-tau.vercel.app/courses"),
       },
       {
         path: "/courses/:id",
         element: <CourseDetails></CourseDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(
+            `https://grow-your-skill-server-tau.vercel.app/courses/${params.id}`
+          ),
       },
       {
         path: "/blog",
@@ -53,7 +56,9 @@ export const routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/courses/${params.id}`),
+          fetch(
+            `https://grow-your-skill-server-tau.vercel.app/courses/${params.id}`
+          ),
       },
       {
         path: "*",

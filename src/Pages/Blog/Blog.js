@@ -2,8 +2,8 @@ import React from "react";
 
 const Blog = () => {
   return (
-    <div className="text-left py-44 bg-gray-800">
-      <section className=" text-gray-100">
+    <div className="text-left py-44 bg-gray-100">
+      <section className=" text-gray-900">
         <div className="container flex flex-col justify-center p-4 mx-auto md:p-8">
           <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">
             Here is some answer of your question?

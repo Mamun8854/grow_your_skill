@@ -95,8 +95,6 @@ const Header = () => {
                   <Link
                     to="/login"
                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
-                    aria-label="Sign Out"
-                    title="Sign Out"
                   >
                     Sign In
                   </Link>
@@ -105,8 +103,6 @@ const Header = () => {
                   <Link
                     to="/register"
                     className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
-                    aria-label="Sign Out"
-                    title="Sign Out"
                   >
                     Register
                   </Link>
@@ -169,8 +165,6 @@ const Header = () => {
                       <li>
                         <Link
                           to="/courses"
-                          aria-label="Our product"
-                          title="Our product"
                           className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-blue-400"
                         >
                           Courses
@@ -179,8 +173,6 @@ const Header = () => {
                       <li>
                         <Link
                           to="/blog"
-                          aria-label="Our product"
-                          title="Our product"
                           className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-blue-400"
                         >
                           Blog
@@ -189,8 +181,6 @@ const Header = () => {
                       <li>
                         <Link
                           to="/faq"
-                          aria-label="Our product"
-                          title="Our product"
                           className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-blue-400"
                         >
                           FAQ
@@ -228,8 +218,6 @@ const Header = () => {
                             <Link
                               to="/login"
                               className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  bg-gray-400 focus:shadow-outline focus:outline-none"
-                              aria-label="Sign Out"
-                              title="Sign Out"
                             >
                               Sign In
                             </Link>
@@ -238,8 +226,6 @@ const Header = () => {
                             <Link
                               to="/register"
                               className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  bg-gray-400 focus:shadow-outline focus:outline-none"
-                              aria-label="Sign Out"
-                              title="Sign Out"
                             >
                               Register
                             </Link>

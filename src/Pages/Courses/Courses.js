@@ -10,6 +10,7 @@ const Courses = () => {
       <div className="flex-col gap-5 w-96 hidden md:flex items-center pt-20 ">
         {datas.map((data) => (
           <Link
+            to={`/courses/${data.id}`}
             key={data.id}
             className="bg-slate-900 w-56 rounded font-medium  text-white px-4 py-2"
           >

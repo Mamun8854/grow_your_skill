@@ -1,11 +1,13 @@
 import { updateProfile } from "firebase/auth";
 import React from "react";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../AuthProvider/AuthProvider";
+
 const Register = () => {
-  const { registerUserWithEmailPassword, updateUserProfile, verifyEmail } =
-    useContext(AuthContext);
+  const navigate = useNavigate();
+  const { registerUserWithEmailPassword } = useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -21,38 +23,17 @@ const Register = () => {
         updateProfile(user, {
           displayName: name,
           photoURL: photoURL,
-        })
-          .then(() => {
-            console.log(user);
-          })
-
-          .catch((error) => {
-            console.error(error.message);
-          });
+        });
+        navigate("/");
+        toast.success("Successfully Register");
         form.reset();
-        handleEmailVerification();
       })
       .catch((error) => console.error(error));
   };
 
-  const handleEmailVerification = () => {
-    verifyEmail()
-      .then(() => {})
-      .catch((error) => console.error(error));
-  };
-
-  const handleUpdateUserProfile = (name, photoURL) => {
-    const profile = {
-      displayName: name,
-      photoURL: photoURL,
-    };
-    updateUserProfile(profile)
-      .then(() => {})
-      .catch((error) => console.error(error));
-  };
   return (
     <div className="flex justify-center bg-gray-100 py-20">
-      <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-white text-gray-900 ">
+      <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-white text-gray-900 shadow-xl shadow-slate-400 hover:shadow-slate-900">
         <h1 className="text-2xl font-bold text-center text-black">
           Registration
         </h1>
