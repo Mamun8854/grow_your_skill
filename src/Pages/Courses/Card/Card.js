@@ -18,7 +18,7 @@ const Card = ({ data }) => {
           <Link to={`/courses/${id}`}>
             <button
               type="button"
-              className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900"
+              className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-teal-600 text-white"
             >
               Read more
             </button>

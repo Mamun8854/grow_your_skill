@@ -34,7 +34,7 @@ const Register = () => {
   };
   return (
     <div className="flex justify-center bg-gray-100 py-20">
-      <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-white text-gray-900 stroke-gray-300">
+      <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-white text-gray-900 ">
         <h1 className="text-2xl font-bold text-center text-black">
           Registration
         </h1>
@@ -115,7 +115,7 @@ const Register = () => {
           <Link
             rel="noopener noreferrer"
             to="/login"
-            className="hover:underline text-violet-400 font-medium ml-2"
+            className="hover:underline text-violet-600 font-medium ml-2"
           >
             Login
           </Link>
