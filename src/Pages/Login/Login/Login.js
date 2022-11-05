@@ -5,7 +5,8 @@ import { AuthContext } from "../../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const { signInWithEmailPassword } = useContext(AuthContext);
+  const { signInWithEmailPassword, signInWithGithub, signInWithGoogle } =
+    useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -24,12 +25,8 @@ const Login = () => {
         console.log(user);
         form.reset();
         setError("");
-        if (user.emailVerified) {
-          navigate(from, { replace: true });
-          toast.success("Successfully login");
-        } else {
-          toast.error("Please verify your mail");
-        }
+        navigate(from, { replace: true });
+        toast.success("Successfully login");
       })
       .catch((error) => {
         console.error(error);
@@ -37,7 +34,28 @@ const Login = () => {
       });
   };
 
-  const handleSignInWithGoogle = () => {};
+  const handleSignInWithGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Successfully Login With Google");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error));
+  };
+
+  const handleSignInWithGitHub = () => {
+    signInWithGithub()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        toast.success("Successfully Login With GitHub");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div className="flex justify-center py-20 bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-3 rounded-xl bg-white text-gray-900">
@@ -94,7 +112,11 @@ const Login = () => {
           <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
         </div>
         <div className="flex justify-center space-x-4">
-          <button aria-label="Log in with Google" className="p-3 rounded-sm">
+          <button
+            onClick={handleSignInWithGoogle}
+            aria-label="Log in with Google"
+            className="p-3 rounded-sm"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -104,7 +126,11 @@ const Login = () => {
             </svg>
           </button>
 
-          <button aria-label="Log in with GitHub" className="p-3 rounded-sm">
+          <button
+            onClick={handleSignInWithGitHub}
+            aria-label="Log in with GitHub"
+            className="p-3 rounded-sm"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"

@@ -77,14 +77,16 @@ const Header = () => {
                   </Link>
                 </li>
                 <li>
-                  <button
-                    onClick={() => signOutUser()}
-                    className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
-                    aria-label="Sign Out"
-                    title="Sign Out"
-                  >
-                    Sign Out
-                  </button>
+                  <Link to="/">
+                    <button
+                      onClick={() => signOutUser()}
+                      className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  hover:bg-gray-400 focus:shadow-outline focus:outline-none"
+                      aria-label="Sign Out"
+                      title="Sign Out"
+                    >
+                      Sign Out
+                    </button>
+                  </Link>
                 </li>
               </>
             ) : (
@@ -136,31 +138,12 @@ const Header = () => {
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-white border rounded shadow-sm">
+                <div className="p-5 bg-gray-800 border rounded shadow-sm">
                   <div className="flex items-center justify-between mb-4">
                     <div>
-                      <a
-                        href="/"
-                        aria-label="Company"
-                        title="Company"
-                        className="inline-flex items-center"
-                      >
-                        <svg
-                          className="w-8 text-blue-400"
-                          viewBox="0 0 24 24"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeMiterlimit="10"
-                          stroke="currentColor"
-                          fill="none"
-                        >
-                          <rect x="3" y="1" width="7" height="12" />
-                          <rect x="3" y="17" width="7" height="6" />
-                          <rect x="14" y="1" width="7" height="6" />
-                          <rect x="14" y="11" width="7" height="12" />
-                        </svg>
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
+                      <a href="/" className="inline-flex items-center">
+                        <img src={Image} alt="" />
+                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
                           Grow Your Skill
                         </span>
                       </a>
@@ -188,7 +171,7 @@ const Header = () => {
                           to="/courses"
                           aria-label="Our product"
                           title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                          className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-blue-400"
                         >
                           Courses
                         </Link>
@@ -198,7 +181,7 @@ const Header = () => {
                           to="/blog"
                           aria-label="Our product"
                           title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                          className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-blue-400"
                         >
                           Blog
                         </Link>
@@ -208,11 +191,61 @@ const Header = () => {
                           to="/faq"
                           aria-label="Our product"
                           title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                          className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-blue-400"
                         >
                           FAQ
                         </Link>
                       </li>
+                      {user ? (
+                        <div className="flex gap-10 justify-center">
+                          <li>
+                            <Link to="/profile">
+                              <img
+                                aria-label="Sign Out"
+                                title={user?.displayName}
+                                alt=""
+                                className="w-12 h-12 rounded-full ring-2 ring-offset-4 bg-gray-500 ring-violet-400 ring-offset-gray-800"
+                                src={user?.photoURL}
+                              />
+                            </Link>
+                          </li>
+                          <li>
+                            <Link to="/">
+                              <button
+                                onClick={() => signOutUser()}
+                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  bg-gray-400 focus:shadow-outline focus:outline-none"
+                                aria-label="Sign Out"
+                                title="Sign Out"
+                              >
+                                Sign Out
+                              </button>
+                            </Link>
+                          </li>
+                        </div>
+                      ) : (
+                        <>
+                          <li>
+                            <Link
+                              to="/login"
+                              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  bg-gray-400 focus:shadow-outline focus:outline-none"
+                              aria-label="Sign Out"
+                              title="Sign Out"
+                            >
+                              Sign In
+                            </Link>
+                          </li>
+                          <li>
+                            <Link
+                              to="/register"
+                              className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md  bg-gray-400 focus:shadow-outline focus:outline-none"
+                              aria-label="Sign Out"
+                              title="Sign Out"
+                            >
+                              Register
+                            </Link>
+                          </li>
+                        </>
+                      )}
                     </ul>
                   </nav>
                 </div>

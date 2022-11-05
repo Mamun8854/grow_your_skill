@@ -20,7 +20,7 @@ const Card = ({ data }) => {
               type="button"
               className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-teal-600 text-white"
             >
-              Read more
+              See course details
             </button>
           </Link>
         </div>
