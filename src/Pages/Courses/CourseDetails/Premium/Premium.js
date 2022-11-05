@@ -1,11 +1,11 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Premium = () => {
   const data = useLoaderData();
-  const { name, picture, price, details } = data;
+  const { name, picture, price, details, id } = data;
   return (
-    <div className="flex justify-center py-20">
+    <div className="flex justify-center py-16">
       <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
         <img
           src={picture}
@@ -16,13 +16,18 @@ const Premium = () => {
           <div className="space-y-2">
             <h2 className="text-3xl font-semibold tracking-wide">{name}</h2>
             <p className="dark:text-gray-100">{details}</p>
+            <p className="text-xl text-gray-400 font-bold pb-4">
+              Price : $ <span className="text-teal-300">{price}</span>
+            </p>
           </div>
-          <button
-            type="button"
-            className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900"
-          >
-            Read more
-          </button>
+          <Link to={`/courses/${id}`}>
+            <button
+              type="button"
+              className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-400 dark:text-gray-900"
+            >
+              Go To Back
+            </button>
+          </Link>
         </div>
       </div>
     </div>

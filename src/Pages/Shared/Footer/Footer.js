@@ -41,6 +41,14 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+        <div>
+          <div className="pt-6">
+            <hr />
+          </div>
+          <div className="pt-4">
+            <small>© Copyright 2022 MamunMridha. All rights reserved.</small>
+          </div>
+        </div>
       </footer>
     </div>
   );
